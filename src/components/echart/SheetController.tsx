@@ -51,9 +51,15 @@ class SheetController extends React.Component {
         // and then remove easy
         const success = this.idControllerMap.delete(panelId);
         const ic:InsightController = DIHelper.getInstance().get(this.insightId);
-        console.log("number of sheets " + ic.idControllerMap.size + "<>" + this.ic.idControllerMap.size);
+
+        console.log("Total items on DIHelper " + DIHelper.getInstance().masterMap.size);
+        console.log("Total items on insightcontroller " + DIHelper.getInstance().get("insight").size);
+        //console.log("number of sheets " + ic.idControllerMap.size + "<>" + this.ic.idControllerMap.size);
         if(this.idControllerMap.size == 0)
+        {
+            console.log("Removing from insight now " + ic.sheetIds.length);
             ic.removeSheet(this.sheetId);
+        }
     }
 
     // adds a panel on click

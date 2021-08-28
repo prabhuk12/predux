@@ -1,3 +1,5 @@
+import { Context } from "react";
+import { useContext } from "react";
 import { createContext } from "react";
 
 export enum Component_keys { 
@@ -6,25 +8,20 @@ export enum Component_keys {
     PANEL = "panel"
 }
 
-
 class DIHelper
 {
-    private static instance: DIHelper;
-    
+    private static instance: DIHelper = new DIHelper();
     masterMap:Map<string, any> = new Map<string, any>();
 
     private constructor()
     {
-
+        
     }
 
     public static getInstance(): DIHelper
     {
-        if(!this.instance)
-        {
-            this.instance = new DIHelper();
-        }    
-
+        //return useContext(this.ctx);
+        //return useContext(ctx);
         return this.instance;
     }
 
@@ -54,5 +51,4 @@ class DIHelper
     // get a panel etc. 
 
 }
-
 export default DIHelper;

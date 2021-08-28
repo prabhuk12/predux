@@ -10,9 +10,12 @@ import SheetController from './SheetController';
 
 class InsightController extends React.Component {
 
-    idControllerMap:Map<string, SheetController>;
+    idControllerMap:Map<string, SheetController> = observable.map({}, {deep:true});
+    idMap2:Map<string, SheetController> = new Map<string, SheetController>();
+
     insightId:string;
     curSheet:number = 0;
+    sheetIds:Array<string> = [];
 
     // it is almost like I need to convert the tt to an observable 
     // and then observe it to render
@@ -26,18 +29,28 @@ class InsightController extends React.Component {
             removeSheet: action
         })
         this.insightId = insightId;
-        this.idControllerMap = new Map<string, SheetController>();
         // registers itself
 
         DIHelper.getInstance().put(this.insightId, this);
-        DIHelper.getInstance().put("insight", this);
+        DIHelper.getInstance().put("insight", this.idMap2);
         
     }
 
     public addSheet(sc:SheetController)
     {
         this.idControllerMap.set(sc.sheetId, sc);
+        this.idMap2.set(sc.sheetId, sc);
+        this.sheetIds.push(sc.sheetId);
+        console.log("IDMap now has.. " + this.idMap2.size)
+        
         DIHelper.getInstance().put(this.insightId, this);
+
+
+        const ic:InsightController = DIHelper.getInstance().get(this.insightId);
+        if(ic == this)
+            console.log("Same insight");
+
+
     }
 
     public removeSheet(sheetId:string)
@@ -45,9 +58,14 @@ class InsightController extends React.Component {
         // code this guy later
         //console.log("Total number of sheets " + this.idControllerMap.size);
         //console.log(sheetId + " <> "+ this.idControllerMap.has(sheetId));
+        console.log("Total items on DIHelper " + DIHelper.getInstance().masterMap.size);
+        console.log("Items on this map " + this.idControllerMap.size);
         console.log(this.idControllerMap.keys());
         const success = this.idControllerMap.delete(sheetId);
         DIHelper.getInstance().put(this.insightId, this);
+        const ic:InsightController = DIHelper.getInstance().get(this.insightId);
+        if(ic.idControllerMap == this.idControllerMap)
+            console.log("Same insight");
     }
 
     // adds a panel on click
@@ -60,6 +78,5 @@ class InsightController extends React.Component {
         ic.addSheet(sc);
     }
 }
-
 
 export default InsightController;
