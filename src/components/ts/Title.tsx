@@ -12,7 +12,7 @@ export interface IState {
   name:string;
 }
 
-abstract class Title extends React.Component<IProps, IState> {
+class Title extends React.Component<IProps, IState> {
 
     public  render():any {
         return (
@@ -40,7 +40,10 @@ public static defaultProps = {
   title: "Default Title"
 }
 
-abstract sayHello(): String;
+sayHello(): String
+{
+  return "title";
+}
 
 public setTitle(inTitle:string)
 {

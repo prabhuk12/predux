@@ -53,6 +53,7 @@ const InsightView = observer(({controller}) => (
           return (
           <div>
             <button onClick={() => {controller.addSheetClick();}}>Add Sheet</button>
+            <button onClick={() => {controller.loadClassAsString();}}>Load Class</button>
                   <Tabs>
           <TabList>
               {titles}

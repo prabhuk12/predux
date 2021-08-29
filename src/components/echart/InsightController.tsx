@@ -42,7 +42,7 @@ class InsightController extends React.Component {
         this.idMap2.set(sc.sheetId, sc);
         this.sheetIds.push(sc.sheetId);
         console.log("IDMap now has.. " + this.idMap2.size)
-        
+
         DIHelper.getInstance().put(this.insightId, this);
 
 
@@ -76,6 +76,15 @@ class InsightController extends React.Component {
         this.curSheet++;
         // would the panel view be added here ?
         ic.addSheet(sc);
+    }
+
+    public loadClassAsString()
+    {
+        const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
+        const obj2 = JSON.parse('public class Mango { public yum() { console.log(\'say yum\');  } }');
+        console.log(obj.name);
+        console.log("Loaded object 2");
+        console.log(obj2);
     }
 }
 
