@@ -9525,6 +9525,19 @@
     "clsx" "^1.1.0"
     "prop-types" "^15.5.0"
 
+"react-tutorial@file:../react-tutorial":
+  "resolved" "file:../react-tutorial"
+  "version" "0.1.0"
+  dependencies:
+    "@testing-library/jest-dom" "^5.11.4"
+    "@testing-library/react" "^11.1.0"
+    "@testing-library/user-event" "^12.1.10"
+    "moveable" "^0.26.0"
+    "react" "^17.0.2"
+    "react-dom" "^17.0.2"
+    "react-scripts" "4.0.3"
+    "web-vitals" "^1.0.1"
+
 "react@*", "react@^15.0.0 || >=16.0.0", "react@^16.3.0 || ^17.0.0-0", "react@^16.8.0 || ^17", "react@^17.0.2", "react@>= 16", "react@>=16.8", "react@>=16.9", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"

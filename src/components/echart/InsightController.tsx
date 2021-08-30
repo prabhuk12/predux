@@ -6,6 +6,7 @@ import { observer } from "mobx-react-lite";
 import PanelController from './PanelController';
 import DIHelper from '../ts/DIHelper';
 import SheetController from './SheetController';
+import { user2, user3 } from '../ts/User';
 
 
 class InsightController extends React.Component {
@@ -80,11 +81,20 @@ class InsightController extends React.Component {
 
     public loadClassAsString()
     {
+        /*
         const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
         const obj2 = JSON.parse('public class Mango { public yum() { console.log(\'say yum\');  } }');
         console.log(obj.name);
         console.log("Loaded object 2");
         console.log(obj2);
+        */
+       //await import('https://raw.githubusercontent.com/prabhuk12/predux/master/src/components/ts/Title.tsx');
+      // System
+      //const h = new HelloWorld();
+      //console.log(h.sayHello());
+      console.log("user");
+      console.log(user2.getFullName());
+      console.log(user3.getFullName());
     }
 }
 
